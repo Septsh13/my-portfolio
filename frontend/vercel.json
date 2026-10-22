@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://YOUR-RENDER-SERVICE.onrender.com/api/:path*"
+      "destination": "https://my-portfolio-backend-dmlj.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
