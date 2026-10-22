@@ -5,6 +5,8 @@
 backend/.env
 backend/.admin-bootstrap-secret
 
+# Public Supabase root CA certificate is intentionally tracked at backend/certs/.
+
 # Dependencies and local database backups
 node_modules/
 database/backups/

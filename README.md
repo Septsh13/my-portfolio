@@ -14,9 +14,9 @@ The data inventory and conversion plan is in [MIGRATION_PLAN.md](MIGRATION_PLAN.
 
 ## Requirements and first run
 
-Install Node.js 20+, PostgreSQL, and Git. The local database is `portfolio_db` on `localhost:5432`. If creating it for the first time, run `createdb -h localhost -p 5432 -U postgres portfolio_db` (or create it in pgAdmin).
+Install Node.js 20+ and Git, and create a Supabase PostgreSQL project. For local development, use its Session pooler URL in `backend/.env`; the backend verifies TLS with `backend/certs/prod-ca-2021.crt`. A plain local PostgreSQL server without TLS is not compatible with this verified-Supabase connection configuration.
 
-1. Configure `backend/.env` from [backend/.env.example](backend/.env.example). Set `DATABASE_URL`, `PORT=3000`, `NODE_ENV=development`, `FRONTEND_ORIGIN=http://localhost:5173`, and a strong `SESSION_SECRET`. Generate a secret with `node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"`.
+1. Configure `backend/.env` from [backend/.env.example](backend/.env.example). Set `DATABASE_URL` to the Supabase Session pooler URL, `SUPABASE_CA_CERT_PATH=certs/prod-ca-2021.crt`, `PORT=3000`, `NODE_ENV=development`, `FRONTEND_ORIGIN=http://localhost:5173`, and a strong `SESSION_SECRET`. Generate a secret with `node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"`.
 2. Apply schema and import the original portfolio without replacing existing records:
 
    ```sh

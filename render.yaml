@@ -11,6 +11,8 @@ services:
         value: production
       - key: COOKIE_SAME_SITE
         value: lax
+      - key: SUPABASE_CA_CERT_PATH
+        value: certs/prod-ca-2021.crt
       - key: DATABASE_URL
         sync: false
       - key: SESSION_SECRET

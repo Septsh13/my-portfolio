@@ -10,8 +10,10 @@ Commit the project files, including `render.yaml` and `frontend/vercel.json`. Do
 
 1. Create a Supabase project and open **Connect**.
 2. Copy the **Session pooler** connection string (port `5432`). Render may not have IPv6 access to Supabase's direct database endpoint, while the shared session pooler supports IPv4. This backend uses persistent PostgreSQL sessions, so use session mode rather than transaction mode.
-3. Replace the password placeholder with the database password. URL-encode reserved characters in it (`@`, `:`, `/`, `#`, `%`, spaces, and similar characters). Keep the `sslmode=require` query parameter; add it if the copied string does not include it.
+3. Replace the password placeholder with the database password. URL-encode reserved characters in it (`@`, `:`, `/`, `#`, `%`, spaces, and similar characters). The backend supplies its own verified TLS settings; any SSL parameters copied into the URL are removed before the pool is created.
 4. Keep the connection string private. It is only used by backend/admin commands and Render, never by Vercel.
+
+The public root certificate is tracked at `backend/certs/prod-ca-2021.crt`, so Render can use the repository copy by default. The Blueprint sets `SUPABASE_CA_CERT_PATH=certs/prod-ca-2021.crt` (relative to the `backend/` directory). If you prefer not to deploy the public CA in the repository, add a Render **Secret File** named `prod-ca-2021.crt` and set `SUPABASE_CA_CERT_PATH=/etc/secrets/prod-ca-2021.crt`. The certificate is public trust data, not a database credential; the connection password remains only in `DATABASE_URL` on Render and in the local ignored `.env`.
 
 Before migrating an existing Supabase database, make a backup and review its tables. The migration runner refuses to bootstrap over an unmanaged schema. For a new, empty project, the commands below apply the schema and import missing records from the portfolio's saved source HTML. The seed uses `ON CONFLICT DO NOTHING`, so it will not replace existing edits.
 

@@ -1,14 +1,21 @@
 require('dotenv').config({ path: require('node:path').resolve(__dirname, '../.env') });
-const { pool } = require('../src/config/database');
+const { pool, safeDatabaseError } = require('../src/config/database');
 
 (async () => {
+  let client;
   try {
-    const { rows } = await pool.query('SELECT current_database() AS database, current_user AS username, version() AS version');
-    console.log(`Connected to ${rows[0].database} as ${rows[0].username} (${rows[0].version.split(',')[0]})`);
+    client = await pool.connect();
+    const { rows } = await client.query('SELECT current_database() AS database');
+    const socket = client.connection?.stream;
+    if (!socket?.encrypted || socket.authorized !== true) {
+      throw new Error('PostgreSQL connected without a certificate-verified TLS session.');
+    }
+    console.log(`Connected securely to database ${rows[0].database}; TLS ${socket.getProtocol()} certificate verified.`);
+  } catch (error) {
+    console.error(`Database connection failed: ${safeDatabaseError(error)}`);
+    process.exitCode = 1;
   } finally {
+    client?.release();
     await pool.end();
   }
-})().catch((error) => {
-  console.error(`Database connection failed: ${error.message}`);
-  process.exitCode = 1;
-});
+})();
