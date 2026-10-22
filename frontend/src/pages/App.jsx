@@ -33,8 +33,12 @@ function PublicPortfolio() {
 
   async function submitContact(event) {
     event.preventDefault(); setContactStatus({ busy:true,error:'',success:'' });
-    try { const result = await api('/api/contact', { method:'POST', body:JSON.stringify(contact) }); setContactStatus({ busy:false,error:'',success:result.message }); setContact({ name:'',email:'',subject:'',message:'',website:'' }); }
-    catch (e) { setContactStatus({ busy:false,error:e.message,success:'' }); }
+    try {
+      const response = await fetch('https://formspree.io/f/mnjjdvpj', { method:'POST', body:new FormData(event.currentTarget), headers:{ Accept:'application/json' } });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error((Array.isArray(result.errors) ? result.errors.map((item) => item.message).filter(Boolean).join(' ') : '') || 'Message could not be sent. Please try again later.');
+      setContactStatus({ busy:false,error:'',success:'Your message has been sent. Thank you.' }); setContact({ name:'',email:'',subject:'',message:'',website:'' });
+    } catch (e) { setContactStatus({ busy:false,error:e.message || 'Message could not be sent. Please try again later.',success:'' }); }
   }
 
   if (error) return <main className="public-error"><h1>Portfolio temporarily unavailable</h1><p>{error}</p><button onClick={() => location.reload()}>Try again</button></main>;
@@ -85,7 +89,7 @@ function PublicPortfolio() {
         <header><h2 className="h2 article-title">{txt(data.contact?.heading,'Contact')}</h2></header>
         <section className="contact-form"><h3 className="h3 form-title">Contact Form</h3>{data.contact?.description&&<p>{data.contact.description}</p>}{data.contact?.formEnabled===false?<p>The contact form is currently unavailable.</p>:<form className="form" onSubmit={submitContact}>
           <div className="input-wrapper"><input className="form-input" name="name" placeholder="Full name" required maxLength="120" value={contact.name} onChange={e=>setContact({...contact,name:e.target.value})}/><input className="form-input" name="email" type="email" placeholder="Email address" required maxLength="254" value={contact.email} onChange={e=>setContact({...contact,email:e.target.value})}/></div>
-          <input className="form-input" name="subject" placeholder="Subject" required maxLength="200" value={contact.subject} onChange={e=>setContact({...contact,subject:e.target.value})}/><textarea className="form-input" name="message" placeholder="Your Message" required maxLength="10000" value={contact.message} onChange={e=>setContact({...contact,message:e.target.value})}/><input className="contact-honeypot" name="website" tabIndex="-1" autoComplete="off" value={contact.website} onChange={e=>setContact({...contact,website:e.target.value})}/>
+          <input className="form-input" name="_subject" placeholder="Subject" required maxLength="200" value={contact.subject} onChange={e=>setContact({...contact,subject:e.target.value})}/><textarea className="form-input" name="message" placeholder="Your Message" required maxLength="10000" value={contact.message} onChange={e=>setContact({...contact,message:e.target.value})}/><input className="contact-honeypot" name="_gotcha" tabIndex="-1" autoComplete="off" value={contact.website} onChange={e=>setContact({...contact,website:e.target.value})}/>
           {contactStatus.error&&<p role="alert" className="form-status error">{contactStatus.error}</p>}{contactStatus.success&&<p role="status" className="form-status success">{contactStatus.success}</p>}<button className="form-btn" type="submit" disabled={contactStatus.busy}><ion-icon name="paper-plane"/><span>{contactStatus.busy?'Sending…':'Send Message'}</span></button>
         </form>}</section>
       </article>
