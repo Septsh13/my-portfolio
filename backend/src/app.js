@@ -1,0 +1,36 @@
+require('dotenv').config({ path: require('node:path').resolve(__dirname, '../.env') });
+const express=require('express');
+const session=require('express-session');
+const connectPgSimple=require('connect-pg-simple')(session);
+const helmet=require('helmet');
+const cors=require('cors');
+const {pool}=require('./config/database');
+const authRoutes=require('./routes/auth');
+const portfolioRoutes=require('./routes/portfolio');
+const adminRoutes=require('./routes/admin');
+const mediaRoutes=require('./routes/media');
+const contactRoutes=require('./routes/contact');
+
+const app=express();
+app.disable('x-powered-by');
+if(!process.env.SESSION_SECRET||process.env.SESSION_SECRET.length<32)throw new Error('Set a random SESSION_SECRET of at least 32 characters in backend/.env');
+app.set('trust proxy',process.env.NODE_ENV==='production'?1:false);
+app.use(helmet({crossOriginResourcePolicy:{policy:'cross-origin'}}));
+const allowedOrigin=process.env.FRONTEND_ORIGIN||'http://localhost:5173';
+app.use(cors({origin:allowedOrigin,credentials:true,methods:['GET','POST','PUT','DELETE','OPTIONS'],allowedHeaders:['Content-Type','X-CSRF-Token']}));
+app.use(express.json({limit:'1mb'}));
+const secureCookies=process.env.NODE_ENV==='production';
+const sameSite=process.env.COOKIE_SAME_SITE||'lax';
+if(sameSite==='none'&&!secureCookies)throw new Error('COOKIE_SAME_SITE=none requires NODE_ENV=production and HTTPS.');
+app.use(session({name:'portfolio.sid',store:new connectPgSimple({pool,tableName:'sessions',createTableIfMissing:false}),secret:process.env.SESSION_SECRET,resave:false,saveUninitialized:false,cookie:{httpOnly:true,sameSite,secure:secureCookies,maxAge:8*60*60*1000}}));
+app.get('/api/health',async(_req,res)=>{try{const r=await pool.query('SELECT 1');res.json({status:'ok',database:r.rowCount===1});}catch{res.status(503).json({status:'error',database:false});}});
+app.use('/api/auth',authRoutes);
+app.use('/api/portfolio',portfolioRoutes);
+app.use('/api/admin',adminRoutes);
+app.use('/api/media',mediaRoutes);
+app.use('/api/contact',contactRoutes);
+app.use((req,res)=>res.status(404).json({error:'Not found.'}));
+app.use((error,_req,res,_next)=>{console.error('Request failed:',error.message);if(error.code==='LIMIT_FILE_SIZE')return res.status(413).json({error:'Images must be no larger than 8 MB.'});if(error.status&&error.status<500)return res.status(error.status).json({error:error.message});res.status(500).json({error:'An unexpected server error occurred.'});});
+
+const port=Number(process.env.PORT||3000);
+app.listen(port,'0.0.0.0',()=>console.log(`Portfolio API listening on port ${port}`));

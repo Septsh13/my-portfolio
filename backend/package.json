@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-admin-backend",
+  "private": true,
+  "version": "1.0.0",
+  "engines": { "node": ">=20" },
+  "description": "Secure PostgreSQL-backed portfolio API and admin",
+  "scripts": {
+    "db:check": "node scripts/db-check.js",
+    "db:migrate": "node scripts/migrate.js",
+    "db:seed": "node ../database/seeds/import-existing-portfolio.js",
+    "start": "node src/app.js",
+    "dev": "npx --yes node@20 --watch src/app.js",
+    "admin:bootstrap": "npx --yes node@20 scripts/bootstrap-admin.js",
+    "check:smoke": "npx --yes node@20 scripts/smoke-check.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^10.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "multer": "^2.0.2",
+    "nodemailer": "10.2.0",
+    "pg": "^8.13.1"
+  }
+}

@@ -1,0 +1,14 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.admin-bootstrap-secret
+
+# Dependencies and local database backups
+node_modules/
+database/backups/
+*.backup
+*.dump
+frontend/dist/
+*.log

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my%20profile%20pic.jpeg" alt="Om Kharche" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="V S Septsh Kumar">V S Septsh Kumar</h1>
+
+          <p class="title">Full Stack Developer | ML Enthusiast</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:septshkumar@gmail.com" class="contact-link">septsh@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+12133522795" class="contact-link">+91 9600304524</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">12 April, 2003</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>TamilNadu, India</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://linkedin.com/in/v-s-septsh-kumar" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://github.com/Septsh13" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://instagram.com/septsh_13" class="social-link" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Projects</button>
+          </li>
+
+
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Passionate learner with a strong foundation in Web Development and Programming. Interested in exploring the
+            ever-evolving tech world and applying my skills to impactful projects.
+          </p>
+
+          <p>
+            Currently pursuing B.Tech in CSE at SRM Institute of Science and Technology. I have experience with Full
+            Stack
+            Development, Machine Learning, and Interactive Algorithms.
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What i'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web Development</h4>
+
+                <p class="service-item-text">
+                  Building responsive websites using HTML, CSS, JavaScript, React.js, and Node.js.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Machine Learning</h4>
+
+                <p class="service-item-text">
+                  Developing models using Python, SVM, BART, YOLO, and Ollama.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg" alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Cyber Security</h4>
+
+                <p class="service-item-text">
+                  Experience with link safety checks and safe browsing APIs.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Computer Vision</h4>
+
+                <p class="service-item-text">
+                  Image processing and object detection using OpenCV and YOLO.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">SRM Institute of Science and Technology</h4>
+
+              <span>Expected 2027</span>
+
+              <p class="timeline-text">
+                B.Tech CSE (AI & ML) - CGPA: 9.76 (IV Semester)
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">St Jude Public School, Kuttenellur</h4>
+
+              <span>2023</span>
+
+              <p class="timeline-text">
+                Class 12 - 93.6%
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">St Jude's Public School, Kothagiri</h4>
+
+              <span>2021</span>
+
+              <p class="timeline-text">
+                Class 10 - 84%
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Supraja Technologies</h4>
+
+              <span>May 2025 – June 2025</span>
+
+              <p class="timeline-text">
+              <p>
+                During my Cyber Security Internship at Supraja Technologies, I designed and developed a secure
+                web-based tool to detect malicious and unsafe URLs using real-time threat intelligence. I built RESTful
+                backend
+                services in Python and integrated APIs such as VirusTotal and Google Safe Browsing to analyze and
+                classify over 100 URLs based on risk levels.
+
+              </p>
+
+              <p>
+                I collaborated closely with cybersecurity professionals to strengthen detection reliability and
+                generate detailed security reports for better threat visibility. Although my academic focus is in
+                Artificial
+                Intelligence and Machine Learning, I quickly adapted to cybersecurity practices, gained hands-on
+                exposure to ethical hacking concepts, and contributed to improving the system’s accuracy and workflow
+                efficiency.
+
+              </p>
+
+              <p>
+                This experience strengthened my ability to work across domains, design secure systems, and apply
+                analytical thinking beyond traditional AI/ML applications.
+              </p>
+              </p>
+
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Python</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Full Stack (HTML, CSS, JS, React, Node)</h5>
+                <data value="85">85%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Machine Learning</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">C++ / Java</h5>
+                <data value="75">75%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 75%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Languages</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">English</h5>
+                <data value="100">100%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Malayalam</h5>
+                <data value="100">100%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Tamil</h5>
+                <data value="100">100%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="projects">
+
+        <header>
+          <h2 class="h2 article-title">Projects</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web Development</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Java Full Stack</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Machine Learning</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>AI + Web</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Cyber Security</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web Development</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Java Full Stack</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Machine Learning</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>AI + Web</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Cyber Security</button>
+              </li>
+
+            </ul>
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="cyber security">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/cyber%20sec/Screenshot%202026-02-13%20142128.jpg"
+                    alt="Block Malicious Website" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Block Malicious Website</h3>
+              <p class="project-category">Cyber Security</p>
+              <a href="https://github.com/Septsh13/block-malicious-website" class="project-github-link"
+                target="_blank">Open in GitHub</a>
+            </li>
+
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/web%20develop/dice%20game/Screenshot%202026-02-13%20132505.png"
+                    alt="Dice Game" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Dice Game</h3>
+              <p class="project-category">Web Development</p>
+              <a href="https://github.com/Septsh13/diice-game" class="project-github-link" target="_blank">Open in
+                GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/web%20develop/drums%20game/Screenshot%202026-02-13%20132954.png"
+                    alt="Drum Kit" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Drum Kit</h3>
+              <p class="project-category">Web Development</p>
+              <a href="https://github.com/Septsh13/drums" class="project-github-link" target="_blank">Open in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/web%20develop/simon%20game/Screenshot%202026-02-06%20131428.png"
+                    alt="Simon Game" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Simon Game</h3>
+              <p class="project-category">Web Development</p>
+              <a href="https://github.com/Septsh13/SIMON_game" class="project-github-link" target="_blank">Open in
+                GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-parkinsons.jpg" alt="Parkinson's Disease Prediction" loading="lazy">
+                </figure>
+              </div>
+
+              <h3 class="project-title">Parkinson's Disease Prediction</h3>
+
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/parkinsons-disease-prediction-using-ml/blob/main/parkinsons_disease_detection.ipynb"
+                class="project-github-link" target="_blank">Open in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/autism_prediction/Screenshot 2026-01-19 094629.jpg"
+                    alt="Autism Disease Prediction" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Autism Disease Prediction</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/autism-disease-prediction" class="project-github-link"
+                target="_blank">Open in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/creditCardFraudDetection/Screenshot 2026-01-19 095917.jpg"
+                    alt="Credit Card Fraud Detection" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Credit Card Fraud Detection</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/creditCardFraudDetection" class="project-github-link"
+                target="_blank">Open in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/customerMallSpending/Screenshot 2026-01-19 100446.jpg"
+                    alt="Customer Mall Spending" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Customer Mall Spending</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/customerMallSpending" class="project-github-link"
+                target="_blank">Open in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/diabetes_prediction/Screenshot 2026-01-19 100909.jpg"
+                    alt="Diabetes Prediction" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Diabetes Prediction</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/diabetes-prediction" class="project-github-link" target="_blank">Open
+                in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/goldPricePrediction/Screenshot 2026-01-19 094921.jpg"
+                    alt="Gold Price Prediction" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Gold Price Prediction</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/gold-price-prediction" class="project-github-link"
+                target="_blank">Open in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/heartDiseasePrediction/Screenshot 2026-01-19 095706.jpg"
+                    alt="Heart Disease Prediction" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Heart Disease Prediction</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/heartDiseasePrediction" class="project-github-link"
+                target="_blank">Open in GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/medInsurance/Screenshot 2026-01-19 100156.jpg"
+                    alt="Medical Insurance Prediction" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Medical Insurance Prediction</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/medInsurance" class="project-github-link" target="_blank">Open in
+                GitHub</a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="machine learning">
+              <div class="project-img-wrapper" data-project-img-wrapper>
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/Machine Learning/winequality_prediction/Screenshot 2026-01-19 095148.jpg"
+                    alt="Wine Quality Prediction" loading="lazy">
+                </figure>
+              </div>
+              <h3 class="project-title">Wine Quality Prediction</h3>
+              <p class="project-category">Machine Learning</p>
+              <a href="https://github.com/Septsh13/wineQuality" class="project-github-link" target="_blank">Open in
+                GitHub</a>
+            </li>
+
+          </ul>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="https://formspree.io/f/mnjjdvpj" method="POST" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_subject" class="form-input" placeholder="Subject" required data-form-input>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+  <!--
+    - #PROJECT MODAL
+  -->
+
+  <div class="project-modal-container" data-project-modal-container>
+    <div class="overlay" data-project-modal-overlay></div>
+    <section class="project-modal">
+      <button class="project-modal-close-btn" data-project-modal-close-btn>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <div class="project-modal-img-wrapper">
+        <img src="" alt="Project Image" class="project-modal-img" data-project-modal-img>
+      </div>
+    </section>
+  </div>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

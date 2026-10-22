@@ -1,0 +1,1 @@
+https://github.com/Septsh13/parkinsons-disease-prediction-using-ml/blob/main/parkinsons_disease_detection.ipynb
